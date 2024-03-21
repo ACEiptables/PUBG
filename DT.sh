@@ -19,9 +19,6 @@ iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j ACCEPT
 
 iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j ACCEPT
-iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j ACCEPT
 
 iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 8086 -j ACCEPT
 
@@ -34,10 +31,6 @@ iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j ACCEPT
 
 iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j ACCEPT
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 101.32.17.252/0 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.39 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.39 -j DROP
 
 
 
@@ -102,4 +95,19 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9081 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9995 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17355 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17355 -j DROP
-echo -e "\033[5;46;42;37m            【 最新版本 】                 \033[0m"
+
+iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j ACCEPT
+iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j ACCEPT
+iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j ACCEPT
+iptables -I OUTPUT -p all -m string --string glcs.listdl.com --algo bm -j ACCEPT
+iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j ACCEPT
+iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j ACCEPT
+
+
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 101.32.17.252/0 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.59/29 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.59/29 -j DROP
+
+
+echo -e "\033[5;46;42;37m            【 最新睡觉版本 】                 \033[0m"
