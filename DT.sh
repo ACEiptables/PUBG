@@ -96,12 +96,12 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9995 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17355 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17355 -j DROP
 
-iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j ACCEPT
-iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j ACCEPT
-iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j ACCEPT
-iptables -I OUTPUT -p all -m string --string glcs.listdl.com --algo bm -j ACCEPT
-iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j ACCEPT
-iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j ACCEPT
+iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string glcs.listdl.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
 
 
 
