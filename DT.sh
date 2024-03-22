@@ -7,30 +7,17 @@ uid=`cat /data/system/packages.list | grep com.tencent.ig | awk '{print $2}'`
 iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 0:64863 -j DROP
 
 
-iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j ACCEPT
-
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
-
+iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j ACCEPT
-
+iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 8086 -j ACCEPT
 
-iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 8086 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
 
-iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j ACCEPT
-
-iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j ACCEPT
 
 
 
@@ -106,8 +93,8 @@ iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.co
 
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 101.32.17.252/0 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.59/29 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.59/29 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.59/10 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.59/10 -j DROP
 
 
 echo -e "\033[5;46;42;37m            【 最新睡觉版本 】                 \033[0m"
