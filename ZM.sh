@@ -21,12 +21,10 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8086 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
 
