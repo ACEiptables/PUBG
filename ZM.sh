@@ -1,10 +1,10 @@
 
 
 
-uid=`cat /data/system/packages.list | grep "com.tencent.ig" | awk '{print $2}'`
+uid=`cat /data/system/packages.list | grep 18525 | awk '{print $2}'`
 
-echo -e "\033[5;46;42;37m            【 启动前游戏开启✔已经修复开启失败 】                 \033[0m"
-echo -e "\033[5;46;42;37m            【 自动启动游戏✔只设配全球服 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 启动前游戏开启✔ 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 自动启动游戏✔ 】                 \033[0m"
 iptables -I OUTPUT -d cloud.vmp.onezapp.com -j REJECT
 iptables -I INPUT -s cloud.vmp.onezapp.com -j REJECT
 
