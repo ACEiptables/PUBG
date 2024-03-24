@@ -86,7 +86,8 @@ echo -ne '\033[1;32m    /storage/emulated/0 \r'
 sleep 0.1
 echo -ne '\033[1;33m    /storage/emulated/0/ \r'
 sleep 0.1
-echo -e '\033[1;0m    /storage/emulated/0/ \r'
+echo -e '\033[1;0m      /storage/emulated/0/ \r'
+echo -e "\033[5;46;42;37m            【 文件名就是密码 】                 \033[0m"
 sleep 0.1
     exit 1
     exit
