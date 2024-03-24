@@ -1,6 +1,6 @@
 echo "密码验证中"
 sleep 0.5
-FILE=/storage/emulated/0/小叽猪
+FILE=/storage/emulated/0/曙色压抑你舍不得
 if [ ! -f "$FILE" ]; then
     echo "密码错误"
 sleep 0.3
@@ -86,7 +86,7 @@ echo -ne '\033[1;32m    /storage/emulated/0 \r'
 sleep 0.1
 echo -ne '\033[1;33m    /storage/emulated/0/ \r'
 sleep 0.1
-echo -ne '\033[1;0m    /storage/emulated/0/ \r'
+echo -e '\033[1;0m    /storage/emulated/0/ \r'
 sleep 0.1
     exit 1
     exit
