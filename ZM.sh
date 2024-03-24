@@ -74,4 +74,18 @@ iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9995 -j DROP
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■■100% \r'
-sleep 1.5
+sleep 1
+echo -e "\033[5;46;42;37m            【 开启成功✔ 】                 \033[0m"
+echo "自启动……"
+FILE=/storage/emulated/0/自启动
+if [ ! -f "$FILE" ]; then
+    echo -e "\033[47m  【 检测到没有设置自启动已为您关闭❌ 】 \033[0m"
+    
+    echo -e "\033[33m  开启自启动请在【/storage/emulated/0/】创建名字为 自启动【文件】\033[0m"
+sleep 0.3
+   
+    exit 1
+    exit
+fi
+echo "开始跳转PUBG✔"
+am start -n com.tencent.ig/com.epicgames.ue4.SplashActivity
