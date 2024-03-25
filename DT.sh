@@ -38,22 +38,21 @@ iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
 
 iptables -I OUTPUT -d cloud.vmp.onezapp.com -j DROP
 iptables -I INPUT -s cloud.vmp.onezapp.com -j DROP
-iptables -I INPUT -d mgl.lobby.igamecj.com -j DROP
-iptables -I INPUT -d lobby.igamecj.com -j DROP
+iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
 
-iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
 
 
 
 
 
-iptables -A INPUT -p tcp --dport 17500 -j DROP
-iptables -A INPUT -p udp --dport 17500 -j DROP
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.80/5 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.80/5 -j DROP
+iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
+iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10013 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10068 -j DROP
