@@ -3,6 +3,7 @@ FILE=/storage/emulated/0/Android/data/org.immomo.tcn.info/cache/-605772730759182
 if [ ! -f "$FILE" ]; then
     echo "你没有加入电报:https://t.me/xiaojizhuNB"
     am start -a android.intent.action.VIEW -d https://t.me/xiaojizhuNB
+    exit 1
     exit
 fi
 echo "可以使用"
