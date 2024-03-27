@@ -2,7 +2,7 @@ uid=`cat /data/system/packages.list | grep com.tencent.ig | awk '{print $2}'`
 
 
 
-echo -e "\033[5;46;42;37m            【 连接成功 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 牢大力了 】                 \033[0m"
 echo -e "\033[5;46;42;37m            【 大厅…… 】                 \033[0m"
 
 
@@ -35,6 +35,8 @@ iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j ACCEPT
 iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p udp --dport 8080 -j ACCEPT
+iptables -D OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j ACCEPT
 
 iptables -I OUTPUT -d cloud.vmp.onezapp.com -j DROP
 iptables -I INPUT -s cloud.vmp.onezapp.com -j DROP
