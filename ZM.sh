@@ -29,8 +29,8 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j ACCEPT
-
-
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8080 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j ACCEPT
 iptables -I OUTPUT -d cloud.vmp.onezapp.com -j REJECT
 iptables -I INPUT -s cloud.vmp.onezapp.com -j REJECT
 
