@@ -25,6 +25,11 @@ echo -ne '                   \033[1;31m  ■□□□□□□□□□10% \r'
 iptables -I OUTPUT -d cloud.vmp.onezapp.com -j REJECT
 iptables -I INPUT -s cloud.vmp.onezapp.com -j REJECT
 
+iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+
 
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j DROP
@@ -55,7 +60,8 @@ iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8700 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9030 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9081 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9995 -j DROP
-
+iptables -A INPUT -p udp --dport 17500 -j DROP
+iptables -A INPUT -p tcp --dport 17500 -j DROP
 iptables -A INPUT -p tcp --dport 10012 -j DROP
 iptables -A INPUT -p tcp --dport 10013 -j DROP
 iptables -A INPUT -p tcp --dport 10068 -j DROP
@@ -118,6 +124,8 @@ iptables -A INPUT -p udp --dport 8700 -j DROP
 iptables -A INPUT -p udp --dport 9030 -j DROP
 iptables -A INPUT -p udp --dport 9081 -j DROP
 iptables -A INPUT -p udp --dport 9995 -j DROP
+iptables -A INPUT -p tcp --dport 8700 -j DROP
+iptables -A INPUT -p udp --dport 8700 -j DROP
 
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
