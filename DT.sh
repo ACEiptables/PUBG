@@ -1,6 +1,6 @@
 
 
-uid=`cat /data/system/packages.list | grep 18525 | awk '{print $2}'`
+uid=`cat /data/system/packages.list | grep com.tencent.ig | awk '{print $2}'`
 
 echo -e "\033[5;46;42;37m            【 大厅✔ 】                 \033[0m"
 
