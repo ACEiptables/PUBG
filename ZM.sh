@@ -1,4 +1,4 @@
-uid=`cat /data/system/packages.list | grep com.tencent.ig | awk '{print $2}'`
+uid=`cat /data/system/packages.list | grep 18525 | awk '{print $2}'`
 
 
 
