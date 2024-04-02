@@ -1,4 +1,4 @@
-uid=`cat /data/system/packages.list | grep com.tencent.ig | awk '{print $2}'`
+uid=`cat /data/system/packages.list | grep 18525 | awk '{print $2}'`
 
 
 
@@ -126,11 +126,31 @@ iptables -A INPUT -p udp --dport 8700 -j DROP
 iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j REJECT
 iptables -I INPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j REJECT
 
+iptables -I INPUT -p all -m string --string 10012.03boy.cn --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string 10012.ecport.vip --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string 10012.03boy.cn --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string 10012.ecport.vip --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
 
-iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
-iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
-iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
-iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
 
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
