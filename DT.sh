@@ -2,7 +2,7 @@
 
     uid=`cat /data/system/packages.list | grep 18525 | awk '{print $2}'`
 
-echo -e "\033[5;46;42;37m            【 大厅✔ 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 局内全局离线✔ 】                 \033[0m"
 
 
 
@@ -12,7 +12,7 @@ echo -e "\033[5;46;42;37m            【 大厅✔ 】                 \033[0m"
 
 
 
-echo -e "\033[5;46;42;37m            【 这里报错正常✔ 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 报错请截图✔ 应用版本号必须是18525】                 \033[0m"
 
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
@@ -169,4 +169,4 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
 echo -e "\033[5;46;42;37m            【 小叽猪保驾护航中✔ 】                 \033[0m"
-echo -e "\033[5;46;42;37m              【 建议再执行一遍☜ 】                 \033[0m"
+echo -e "\033[5;46;42;37m              【 打完截图反馈☜ 】                 \033[0m"
