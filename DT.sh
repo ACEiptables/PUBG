@@ -13,8 +13,8 @@ echo -e "\033[5;46;42;37m            【 大厅✔ 】                 \033[0m"
 
 
 echo -e "\033[5;46;42;37m            【 这里报错正常✔ 】                 \033[0m"
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 10.222.94.300/0 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
+
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
@@ -149,38 +149,23 @@ iptables -I INPUT -p udp --dport 20000 -j DROP
 
 iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 0:65535 -j DROP
 iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 0:65535 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.500/0 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 162.62.80.500/0 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.500/0 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 162.62.80.500/0 -j REJECT
 
 
 
-iptables -I INPUT -p all -m string --string 10012.03boy.cn --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string 10012.ecport.vip --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string 10012.03boy.cn --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string 10012.ecport.vip --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.500/0 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.500/0 -j DROP
+
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
 
 
 
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
 echo -e "\033[5;46;42;37m            【 小叽猪保驾护航中✔ 】                 \033[0m"
