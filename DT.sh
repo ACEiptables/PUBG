@@ -1,6 +1,6 @@
 
 
-    uid=`cat /data/system/packages.list | grep 18525 | awk '{print $2}'`
+    uid=`cat /storage/emulated/0/设置包名 | grep 使用 | awk '{print $2}'`
 
 echo -e "\033[5;46;42;37m            【 大厅✔连打测试 】                 \033[0m"
 
