@@ -303,11 +303,9 @@ iptables -I OUTPUT -p udp --dport 443 -s 101.32.143.64 -j REJECT
 
 
 
-iptables -I OUTPUT -p all -m string --string 10012.03boy.cn --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string 10012.ecport.vip --algo bm -j REJECT
+
 iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
@@ -316,13 +314,12 @@ iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJ
 iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string glcs.listdl.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
+
+
 
 
 
