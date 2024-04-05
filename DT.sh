@@ -14,6 +14,12 @@ echo -e "\033[5;46;42;37m            【 大厅✔连打测试 】              
 echo -e "\033[5;46;42;37m            【 出现乱码截图反馈 】                 \033[0m"
 
 
+
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.500/0 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
@@ -285,21 +291,12 @@ iptables -I INPUT -p udp --dport 20000 -j DROP
 
 
 
+iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 0:65535 -j REJECT
+iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 0:65535 -j REJECT
 
 
 
 
-
-iptables -I OUTPUT -p tcp --dport 443 -s 101.32.143.142 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 101.32.143.171 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 101.32.143.232 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 101.32.143.247 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 101.32.143.64 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 101.32.143.142 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 101.32.143.171 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 101.32.143.232 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 101.32.143.247 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 101.32.143.64 -j REJECT
 
 
 
@@ -331,4 +328,4 @@ iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.co
 
 
 echo -e "\033[5;46;42;37m            【 小叽猪保驾护航中✔ 】                 \033[0m"
-echo -e "\033[5;46;42;37m              【 全球适配版本☜ 】                 \033[0m"
+echo -e "\033[5;46;42;37m              【 全球适配版本拒绝☜ 】                 \033[0m"
