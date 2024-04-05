@@ -1,7 +1,6 @@
 
 
-    uid=`cat /storage/emulated/0/设置包名 | grep 使用 | awk '{print $2}'`
-
+        uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
 echo -e "\033[5;46;42;37m            【 大厅✔连打测试 】                 \033[0m"
 
 
@@ -335,4 +334,4 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d w.t3data.net -j ACCEPT
 
 
 echo -e "\033[5;46;42;37m            【 小叽猪保驾护航中✔ 】                 \033[0m"
-echo -e "\033[5;46;42;37m              【 你好☜ 】                 \033[0m"
+echo -e "\033[5;46;42;37m              【 全球适配版本☜ 】                 \033[0m"
