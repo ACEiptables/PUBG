@@ -151,7 +151,7 @@ iptables -I INPUT -p udp --dport 20000 -j DROP
 
 
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.500/0 -j DROP
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
@@ -288,7 +288,6 @@ iptables -I INPUT -p udp --dport 20000 -j DROP
 
 
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.500/0 -j DROP
 
 
 iptables -I OUTPUT -p tcp --dport 443 -s 101.32.143.142 -j REJECT
