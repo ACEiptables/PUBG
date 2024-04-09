@@ -12,20 +12,19 @@ echo -e "\033[5;46;42;37m            【 4月10日 】                 \033[0m"
 
 
 echo -e "\033[5;46;42;37m            【 出现乱码截图反馈 】                 \033[0m"
+iptables -I OUTPUT -m owner --uid-owner=$uid -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 26.26.26.200/0 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 26.26.26.200/0 -j DROP
 
-
-
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 43.155.189.500/0 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.200/0 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.200/0 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 150.109.232.200/0 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j DROP
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --sport 443 -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --sport 443 -j REJECT
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --sport 53 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --sport 53 -j DROP
+
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j DROP
@@ -73,7 +72,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 4096 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41752 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 43861 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 44863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 5010 -j DROP
@@ -158,7 +157,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 4096 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41752 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 43861 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 44863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5010 -j DROP
@@ -198,7 +197,10 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9213 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9995 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9999 -j DROP
 
-
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20002 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20002 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20002 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20002 -j DROP
 iptables -I INPUT -p tcp --dport 17500 -j REJECT
 iptables -I INPUT -p udp --dport 17500 -j REJECT
 
@@ -218,7 +220,7 @@ iptables -I INPUT -p tcp --dport 19302 -j DROP
 iptables -I INPUT -p tcp --dport 20001 -j DROP
 iptables -I INPUT -p tcp --dport 20371 -j DROP
 iptables -I INPUT -p tcp --dport 24685 -j DROP
-iptables -I INPUT -p tcp --dport 443 -j REJECT
+iptables -I INPUT -p tcp --dport 443 -j DROP
 iptables -I INPUT -p tcp --dport 53 -j DROP
 iptables -I INPUT -p tcp --dport 80 -j DROP
 iptables -I INPUT -p tcp --dport 8011 -j DROP
@@ -249,7 +251,7 @@ iptables -I INPUT -p udp --dport 19302 -j DROP
 iptables -I INPUT -p udp --dport 20001 -j DROP
 iptables -I INPUT -p udp --dport 20371 -j DROP
 iptables -I INPUT -p udp --dport 24685 -j DROP
-iptables -I INPUT -p udp --dport 443 -j REJECT
+iptables -I INPUT -p udp --dport 443 -j DROP
 iptables -I INPUT -p udp --dport 53 -j DROP
 iptables -I INPUT -p udp --dport 80 -j DROP
 iptables -I INPUT -p udp --dport 8011 -j DROP
@@ -271,9 +273,9 @@ iptables -I INPUT -p udp --dport 20000 -j DROP
 
 
 
-iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 0:65535 -j REJECT
-iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 0:65535 -j REJECT
-iptables -A OUTPUT -m owner --uid-owner=$uid -j REJECT
+iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 0:65535 -j DROP
+iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 0:65535 -j DROP
+iptables -A OUTPUT -m owner --uid-owner=$uid -j DROP
 
 iptables -I INPUT -p all -m string --string android.crashsight.wetest.net --algo bm -j REJECT
 iptables -I INPUT -p all -m string --string api.club.gpubgm.com --algo bm -j REJECT
@@ -333,11 +335,6 @@ iptables -I INPUT -p all -m string --string thirdqq.qlogo.cn --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string thirdqq.qlogo.cn --algo bm -j REJECT
 iptables -I INPUT -p all -m string --string publicfaas.vasdgame.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string publicfaas.vasdgame.com --algo bm -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 129.226.14.234 -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d publicfaas.vasdgame.com -j REJECT
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 129.226.14.234 -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d publicfaas.vasdgame.com -j REJECT
 
 
 
