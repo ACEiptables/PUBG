@@ -18,7 +18,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 26.26.26.200/0 -j DROP
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 26.26.26.200/0 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 26.26.26.200/0 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 150.109.232.200/0 -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 150.109.232.300/0 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17500 -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j DROP
