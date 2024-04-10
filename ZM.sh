@@ -1,5 +1,9 @@
     uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
-
+am force-stop com.tencent.ig
+iptables -F 
+iptables -X 
+iptables -Z
+am force-stop com.tencent.ig
 
 echo -e "\033[5;46;42;37m            【 连打测试4月4日全球适配 】                 \033[0m"
 echo -e "\033[5;46;42;37m            【 桌面启动开启 】                 \033[0m"
