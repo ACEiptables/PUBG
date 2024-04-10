@@ -1,7 +1,7 @@
 
 
         uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
-echo -e "\033[5;46;42;37m            【 百分百修复10年 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 更新测试 】                 \033[0m"
 
 
 
@@ -15,13 +15,13 @@ echo -e "\033[5;46;42;37m            【 报错再执行一遍即可 】        
 
 
 
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --sport 17500 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j DROP
-
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --sport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --sport 53 -j DROP
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --sport 443 -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --sport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --sport 443 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --sport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10013 -j DROP
@@ -68,7 +68,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 4096 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41752 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 43861 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 44863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 5010 -j DROP
@@ -153,7 +153,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 4096 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41752 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 43861 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 44863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5010 -j DROP
@@ -218,7 +218,7 @@ iptables -I INPUT -p tcp --dport 19302 -j DROP
 iptables -I INPUT -p tcp --dport 20001 -j DROP
 iptables -I INPUT -p tcp --dport 20371 -j DROP
 iptables -I INPUT -p tcp --dport 24685 -j DROP
-iptables -I INPUT -p tcp --dport 443 -j REJECT
+iptables -I INPUT -p tcp --dport 443 -j DROP
 iptables -I INPUT -p tcp --dport 53 -j DROP
 iptables -I INPUT -p tcp --dport 80 -j DROP
 iptables -I INPUT -p tcp --dport 8011 -j DROP
@@ -249,7 +249,7 @@ iptables -I INPUT -p udp --dport 19302 -j DROP
 iptables -I INPUT -p udp --dport 20001 -j DROP
 iptables -I INPUT -p udp --dport 20371 -j DROP
 iptables -I INPUT -p udp --dport 24685 -j DROP
-iptables -I INPUT -p udp --dport 443 -j REJECT
+iptables -I INPUT -p udp --dport 443 -j DROP
 iptables -I INPUT -p udp --dport 53 -j DROP
 iptables -I INPUT -p udp --dport 80 -j DROP
 iptables -I INPUT -p udp --dport 8011 -j DROP
@@ -270,73 +270,95 @@ iptables -I INPUT -p udp --dport 20000 -j DROP
 
 
 
-iptables -I INPUT -p all -m string --string android.crashsight.wetest.net --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string api.club.gpubgm.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string app-measurement.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string app.adjust.net.in --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string app.adjust.world --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.co --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string broker-1314297.vasdgame.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string cloud.gsdk.proximabeta.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string dl.listdl.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string euping.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string graph.facebook.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string hkping.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string hn.voice.gcloudcs.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string ig-us-notice.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string krping.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string lh3.googleusercontent.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string android.crashsight.wetest.net --algo bm -j DROP
+iptables -I INPUT -p all -m string --string api.club.gpubgm.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string app-measurement.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string app.adjust.net.in --algo bm -j DROP
+iptables -I INPUT -p all -m string --string app.adjust.world --algo bm -j DROP
+iptables -I INPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.co --algo bm -j DROP
+iptables -I INPUT -p all -m string --string broker-1314297.vasdgame.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string cloud.gsdk.proximabeta.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string dl.listdl.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string euping.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string graph.facebook.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string hkping.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string hn.voice.gcloudcs.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string ig-us-notice.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string krping.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string lh3.googleusercontent.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string meping.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string naping.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string saping.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string sec.listdl.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string sg.tdatamaster.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string tencentgames.helpshift.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string www.pubgmobile.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string android.crashsight.wetest.net --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string api.club.gpubgm.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string app-measurement.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string app.adjust.net.in --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string app.adjust.world --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.co --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string broker-1314297.vasdgame.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string cloud.gsdk.proximabeta.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string dl.listdl.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string euping.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string graph.facebook.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string hkping.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string hn.voice.gcloudcs.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string ig-us-notice.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string krping.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string lh3.googleusercontent.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string meping.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string naping.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string saping.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string sec.listdl.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string tencentgames.helpshift.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string www.pubgmobile.com --algo bm -j DROP
+
+
+iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
+
+iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+iptables -I OUTPUT -p all -m string --string thirdqq.qlogo.cn --algo bm -j DROP
+
+iptables -I OUTPUT -p all -m string --string publicfaas.vasdgame.com --algo bm -j DROP
+
+
+
+#防
+
+iptables -I INPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string glcs.listdl.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
 iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string meping.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string naping.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string saping.igamecj.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string sec.listdl.com --algo bm -j REJECT
 iptables -I INPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string tencentgames.helpshift.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string www.pubgmobile.com --algo bm -j REJECT
+iptables -I INPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
 
-iptables -I OUTPUT -p all -m string --string android.crashsight.wetest.net --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string api.club.gpubgm.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string app-measurement.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string app.adjust.net.in --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string app.adjust.world --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.co --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string broker-1314297.vasdgame.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string cloud.gsdk.proximabeta.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string dl.listdl.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string euping.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string graph.facebook.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string hkping.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string hn.voice.gcloudcs.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string ig-us-notice.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string krping.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string lh3.googleusercontent.com --algo bm -j REJECT
+
+iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string chapangzhan.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string default.tdatamaster.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string glcs.listdl.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string meping.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string naping.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string saping.igamecj.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string sec.listdl.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string tencentgames.helpshift.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string www.pubgmobile.com --algo bm -j REJECT
-
-
-
-iptables -I OUTPUT -p all -m string --string thirdqq.qlogo.cn --algo bm -j REJECT
-
-iptables -I OUTPUT -p all -m string --string publicfaas.vasdgame.com --algo bm -j REJECT
-
-
-
-
-
-
-
-
+iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
 
 
 
