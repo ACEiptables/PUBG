@@ -15,7 +15,7 @@ echo -e "\033[5;46;42;37m            【 报错再执行一遍即可 】        
 
 
 
-iptables -I OUTPUT -p all -j DROP
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
