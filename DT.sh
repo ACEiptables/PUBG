@@ -20,8 +20,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17500 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j REJECT
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j REJECT
+
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10010 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10013 -j DROP
@@ -68,7 +67,7 @@ ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 4096 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41752 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41762 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 43861 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j REJECT
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 44863 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 5010 -j DROP
@@ -92,7 +91,7 @@ ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 7969 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8010 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8011 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j REJECT
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8030 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8050 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j DROP
@@ -153,7 +152,7 @@ ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 4096 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41752 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41762 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 43861 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j REJECT
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 44863 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50000 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5010 -j DROP
@@ -177,7 +176,7 @@ ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 7969 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8010 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8011 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j REJECT
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8030 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8050 -j DROP
 ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8080 -j DROP
@@ -201,8 +200,7 @@ ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20002 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j REJECT
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10013 -j DROP
@@ -249,7 +247,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 4096 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41752 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 43861 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 44863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 5010 -j DROP
@@ -273,7 +271,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 7969 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8011 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8030 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8050 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j DROP
@@ -334,7 +332,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 4096 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41752 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 43861 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 44863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5010 -j DROP
@@ -358,7 +356,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 7969 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8011 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8030 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8050 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8080 -j DROP
@@ -387,28 +385,46 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20002 -j DROP
 
 
 iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
-iptables -I INPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
-
 iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
-iptables -I INPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
 
 
 
 
+
+iptables -I OUTPUT -p all -m string --string accountlinking-pa-clients6.youtube.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string administration.qq.com.helpshift.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string app.adjust.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string cloud.gsdk.proximabeta.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string devel.helpshift.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string glcs.listdl.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string google.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string hkspeed.igamecj.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string host6.helpshift.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string ipapp.adjust.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string na.pandora.qq --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string na.pandora.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string napubgm.broker.amsoveasea.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string nawzryhwatm.broker.amsoveasea.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string playmc2.helpshift.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string tancentgemes.helpshift.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string tencentgames.helpshift.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string translate.google.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string www.googleplay.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string www.youtube.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m string --string youtu.be --algo bm -j REJECT
 #防
 
 
-iptables -I OUTPUT -p all -m string --string asia.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string asia.csoversea.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string csoversea.mbgame.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string global.cschannel.ace-anti.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string global.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com.0.1.adiosnof.roksit.net --algo bm -j REJECT
 
 
 
 
 echo -e "\033[5;46;42;37m            【 小叽猪保驾护航中✔ 】                 \033[0m"
 echo -e "\033[5;46;42;37m            【 全球完美适配版✔☜ 】                 \033[0m"
-echo -e "\033[5;46;42;37m            【 本次最后一次更新✔完美稳定✔ 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 尝试修复强检10年✔完美稳定✔ 】                 \033[0m"
