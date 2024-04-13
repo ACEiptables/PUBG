@@ -1,12 +1,28 @@
-    uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
+  rm -rf /data/user/0/com.tencent.tmgp.pubgmhd/files/ano_tmp
+rm -rf /data/data/com.tencent.tmgp.pubgmhd/files/ano_tmp
+
+rm -rf /data/user/0/com.tencent.tmgp.cf/files/ano_tmp
+rm -rf /data/data/com.tencent.tmgp.cf/files/ano_tmp
+
+rm -rf /data/user/0/com.tencent.tmgp.cod/files/ano_tmp
+rm -rf /data/data/com.tencent.tmgp.cod/files/ano_tmp
+
+rm -rf /data/user/0/com.tencent.tmgp.sgame/files/ano_tmp
+rm -rf /data/data/com.tencent.tmgp.sgame/files/ano_tmp
+
+    rm -rf /data/user/0/com.tencent.ig/files/ano_tmp
+rm -rf /data/data/com.tencent.ig/files/ano_tmp
+      
+          uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
 am force-stop com.tencent.ig
 iptables -F 
 iptables -X 
 iptables -Z
 am force-stop com.tencent.ig
+echo -ne '                   \033[1;37m  □□□□□□□□□□ \r'
+
 sleep 2
-echo -e "\033[5;46;42;37m            【 ⭐规则测试 】                 \033[0m"
-echo -e "\033[5;46;42;37m            【 桌面启动开启 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 载入中 】                 \033[0m"
 
 
 
@@ -16,9 +32,10 @@ echo -e "\033[5;46;42;37m            【 桌面启动开启 】                 
 
 
 
-echo -ne '                   \033[1;37m  □□□□□□□□□□0% \r'
 
-echo -ne '                   \033[1;31m  ■□□□□□□□□□10% \r'
+echo -ne '                   \033[1;37m  □□□□□□□□□□ \r'
+
+echo -ne '                   \033[1;31m  ■□□□□□□□□□ \r'
 
 
 
@@ -55,6 +72,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20001 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20371 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20851 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 21762 -j DROP
+echo -ne '                   \033[1;31m  ■■□□□□□□□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 23861 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 24219 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 24685 -j DROP
@@ -76,6 +94,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 41762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 43861 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 44863 -j DROP
+echo -ne '                   \033[1;31m  ■■■□□□□□□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 5010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 5030 -j DROP
@@ -99,6 +118,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8011 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j DROP
+echo -ne '                   \033[1;31m  ■■■■□□□□□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8030 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8050 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8080 -j DROP
@@ -121,6 +141,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10277 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10331 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10423 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10851 -j DROP
+echo -ne '                   \033[1;31m  ■■■■■□□□□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 11762 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 13764 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 13861 -j DROP
@@ -147,6 +168,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 24863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 25222 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 2539 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 30013 -j DROP
+echo -ne '                   \033[1;31m  ■■■■■■□□□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 30113 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 30851 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 31003 -j DROP
@@ -166,6 +188,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5030 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50851 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 51762 -j DROP
+echo -ne '                   \033[1;31m  ■■■■■■■□□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 5222 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53861 -j DROP
@@ -185,6 +208,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8011 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8030 -j DROP
+echo -ne '                   \033[1;31m  ■■■■■■■■□□ \r'
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8050 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8080 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8081 -j DROP
@@ -206,9 +230,9 @@ iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j 
 
 
 
-echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
+echo -ne '                   \033[1;32m  ■■■■■■■■■□ \r'
 sleep 0.1
-echo -ne '                   \033[1;32m  ■■■■■■■■■■100% \r'
+echo -ne '                   \033[1;32m  ■■■■■■■■■■ \r'
 echo -e "\033[5;46;42;37m            【 开启成功✔ 】                 \033[0m"
 echo "自启动……"
 FILE=/storage/emulated/0/自启动
