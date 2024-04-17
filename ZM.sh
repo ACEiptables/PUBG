@@ -16,13 +16,23 @@ rm -rf /data/data/com.tencent.ig/files/ano_tmp
           uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
 am force-stop com.tencent.ig
 iptables -F 
-iptables -X 
-iptables -Z
+
 am force-stop com.tencent.ig
 echo -ne '                   \033[1;37m  □□□□□□□□□□ \r'
 
 sleep 2
-echo -e "\033[5;46;42;37m            【 载入中 】                 \033[0m"
+echo -e "\033[37m             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢖⠄⣀⢤⢴⣩⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠐⠠⣀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡖⡼⡀⣦⡹⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐
+⡀⠀⠀⠁⠢⢄⠀⠀⠀⠀⠀⢀⡷⣩⠛⢣⡱⣾⠄⠀⠀⠀⠀⠀⢀⠠⠐⠀⠀⠀
+⠈⠢⡀⠀⢀⢄⠑⠄⡀⠀⢀⣼⠿⢿⡅⠥⠶⢷⢂⠀⠀⠀⡠⠒⢡⠀⠀⠀⠀⠀
+⠀⠀⠀⠩⠀⠀⠀⠀⠀⢠⠋⠀⠀⠀⢀⠀⠀⠀⠁⢡⠀⠀⠀⠀⠁⠓⡒⠊⠀⠀
+⠀⠀⠀⠀⣂⡀⠀⠀⠀⠀⠙⢤⠄⠂⠁⠁⠒⢠⠔⠁⠀⠀⠀⠀⠀⡐⠀⠀⠀⠀
+⠀⠀⠀⠀⠹⡏⠀⠀⠀⠀⠀⠀⢑⡄⢒⠒⡔⠁⠀⠀⠀⠀⠀⠀⡐⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⢁⢸⠀⠀⠀⠀⠀⠀⠀⠀⡔⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠐⡀⠀⠀⠀⠀⠀⠀⠿⠃⠀⠀⠀⠀⠀⢀⠈⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⢢⠀⠀⠀⢀⡤⠚⢄⠀⠀⠀⠀⣠⣷⡄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣡⠋⠀⠀⠀⢣⠀⠈⠁⠈⢛⠁⠀⠀⠀⠀⠀⠀⠀                  \033[0m"
 
 
 
@@ -246,4 +256,5 @@ sleep 0.3
     exit
 fi
 echo "开始跳转PUBG✔"
+
 am start -n com.tencent.ig/com.epicgames.ue4.SplashActivity
