@@ -106,7 +106,11 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9030 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9081 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9213 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9995 -j DROP
-
+#漏
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8090 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8090 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20371 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20371 -j DROP
 
 iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j REJECT
 
@@ -115,7 +119,7 @@ iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j 
 echo -ne '                   \033[1;32m  ■■■■■■■■■□ \r'
 sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■■ \r'
-echo -e "\033[5;46;42;37m            【 我还能说什么呢……直接奔放！ 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 我还能说什么呢……测试you游！ 】                 \033[0m"
 echo "自启动……"
 FILE=/storage/emulated/0/自启动
 if [ ! -f "$FILE" ]; then

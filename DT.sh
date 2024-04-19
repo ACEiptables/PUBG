@@ -90,7 +90,7 @@ iptables -I OUTPUT -p all -m string --string k.gjacky.com --algo bm -j DROP
 iptables -I OUTPUT -p all -m string --string kr.voice.gcloudcs.com --algo bm -j DROP
 iptables -I OUTPUT -p all -m string --string nawzryhwatm.broker.amsoveasea.com --algo bm -j DROP
 iptables -I OUTPUT -p all -m string --string sg.tdatamaster.com --algo bm -j DROP
-
+iptables -I OUTPUT -p all -m string --string www.pubgmobile.com --algo bm -j DROP
 echo -ne '                   \033[1;32m  ■■■■■■■■■■ \r'
 
 echo -e "\033[5;46;42;31m            【 禁止一切注入功能！✔ 】                 \033[0m"
