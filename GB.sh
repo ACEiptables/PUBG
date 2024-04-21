@@ -1,7 +1,7 @@
 am force-stop com.tencent.ig
 iptables -F 
-iptables -X 
-iptables -Z
+iptables -F
+iptables -F 
 am force-stop com.tencent.ig
 
 
