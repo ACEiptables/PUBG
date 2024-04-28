@@ -5,6 +5,8 @@ rm -rf /data/data/com.tencent.ig/files/ano_tmp
           uid=`cat /data/system/packages.list | grep 'com.tencent.ig ' | awk '{print $2}'`
 am force-stop com.tencent.ig
 iptables -F 
+iptables -X 
+iptables -Z 
 
 
 am force-stop com.tencent.ig
@@ -18,7 +20,6 @@ sleep 1
 
 
 echo -ne '                   \033[1;31m  ■□□□□□□□□□ \r'
-
 
 
 
@@ -206,4 +207,4 @@ iptables -I OUTPUT -p all -m string --string cloud.vmp.onezapp.com --algo bm -j 
 echo -ne '                   \033[1;32m  ■■■■■■■■■□ \r'
 sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■■ \r'
-echo -e "\033[5;46;42;37m            【 我还能说什么呢……测试you游！ 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 极品写法！ 】                 \033[0m"
