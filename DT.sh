@@ -10,13 +10,7 @@ echo -ne '                   \033[1;37m  □□□□□□□□□□ \r'
 
 
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 853 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 853 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
 
 
 
@@ -34,7 +28,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 0.0.0.0/0 --sport 80 -j D
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 0.0.0.0/0 --sport 443 -j DROP  #禁止访问所有https
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 0.0.0.0/0 --sport 80 -j DROP   #禁止访问所有http
-#根
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
@@ -43,89 +37,47 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 443 -j 
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
 
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9030 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9030 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53  -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 853 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 853 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8086 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8086 -j DROP
 
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
 
 
 
 
 
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j DROP
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j DROP
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9030 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9030 -j DROP
-iptables -I OUTPUT  -m owner --uid-owner=$uid -p udp --dport 53  -j DROP
+
+
+
+
+
 
 iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
 iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
+
 
 echo -ne '                   \033[1;31m  ■■■□□□□□□□ \r'
 
 
 
-
-
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 853 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 853 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
-
-
-
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 0.0.0.0/0 --sport 443 -j DROP  #禁止访问所有https
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 0.0.0.0/0 --sport 80 -j DROP   #禁止访问所有http
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 0.0.0.0/0 --sport 443 -j DROP  #禁止访问所有https
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 0.0.0.0/0 --sport 80 -j DROP   #禁止访问所有http
-#根
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
-
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
-
-
-
-
-
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8013 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8013 -j DROP
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j DROP
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9030 -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9030 -j DROP
-iptables -I OUTPUT  -m owner --uid-owner=$uid -p udp --dport 53  -j DROP
-
-iptables -I OUTPUT -p all -m string --string mgl.lobby.igamecj.com --algo bm -j DROP
-iptables -I OUTPUT -p all -m string --string lobby.igamecj.com --algo bm -j DROP
 
 echo -ne '                   \033[1;31m  ■■■□□□□□□□ \r'
 #心跳包
@@ -148,7 +100,6 @@ iptables -I OUTPUT -p all -m string --string na.pandora.qq.com --algo bm -j REJE
 iptables -I OUTPUT -p all -m string --string napubgm.broker.amsoveasea.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string nawzryhwatm.broker.amsoveasea.com --algo bm -j REJECT
 iptables -I OUTPUT -p all -m string --string playmc2.helpshift.com --algo bm -j REJECT
-
 iptables -I OUTPUT -p all -m string --string api.club.gpubgm.com --algo bm -j REJECT
 
 echo -ne '                   \033[1;31m  ■■■■■■■■□□ \r'
